@@ -1,0 +1,30 @@
+<RCC>
+  <qresource prefix="images">
+    <file>resources/images/available.png</file>
+    <file>resources/images/away.png</file>
+    <file>resources/images/busy.png</file>
+    <file>resources/images/chat.png</file>
+    <file>resources/images/close.png</file>
+    <file>resources/images/conferences.png</file>
+    <file>resources/images/extended-away.png</file>
+    <file>resources/images/fotostrana.png</file>
+    <file>resources/images/frame.png</file>
+    <file>resources/images/loading.gif</file>
+    <file>resources/images/loadingbar.gif</file>
+    <file>resources/images/log-in.png</file>
+    <file>resources/images/log-out.png</file>
+    <file>resources/images/mailru.png</file>
+    <file>resources/images/offline.png</file>
+    <file>resources/images/online.png</file>
+    <file>resources/images/person.png</file>
+    <file>resources/images/plus.png</file>
+    <file>resources/images/preferences.png</file>
+    <file>resources/images/qt4.png</file>
+    <file>resources/images/v-card-48.png</file>
+    <file>resources/images/vkontakte.png</file>
+  </qresource>
+  <qresource prefix="data">
+    <file>resources/data/towns.bd</file>
+    <file>resources/data/staticroom.bd</file>
+  </qresource>
+</RCC>

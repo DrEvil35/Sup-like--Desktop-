@@ -1,0 +1,44 @@
+import sip
+import sys
+sip.setapi('QString', 2)
+sip.setapi('QVariant', 2)
+from xmpp import debug
+
+FLAG_ERROR = "error"
+FLAG_WARNING = "warning"
+FLAG_SUCCESS = "sucess"
+FLAG_INFO = "info"
+
+gDebug = debug.Debug([debug.DBG_ALWAYS], showFlags=False)
+gDebug.colors[FLAG_ERROR] = debug.colorBrightRed
+gDebug.colors[FLAG_WARNING] = debug.colorYellow
+gDebug.colors[FLAG_SUCCESS] = debug.colorBrightCyan
+
+from PyQt4.QtGui import QApplication
+from PyQt4.QtCore import QDate,QTime,QObject
+from include import Utils
+
+gTime = QTime()
+gDate = QDate()
+
+def printf(text, flag=FLAG_INFO):
+	gDebug.show(text, flag, flag)
+
+
+def exception_hook(type,value,trace_back):
+	try:
+		_date,_time = gDate.currentDate(),gTime.currentTime()
+		text = traceback.format_exception(type,value,trace_back)
+		printf("Exception detected[%s]: %s\n"%(str(_time.toString(u'HH:mm:ss')),''.join(text)),FLAG_ERROR)
+	finally:
+		sys.__excepthook__(type,value,trace_back)
+
+
+
+
+
+if __name__ == "__main__":
+	gLog('Install exception_hook')
+	sys.excepthook = exception_hook
+	gLog('Starting application')
+	main()
